@@ -1,0 +1,37 @@
+{
+	"target": "hid-bootloader",
+    "microcontroller": "atsamd21j18a",
+    "toolchain": "arm-none-eabi",
+    "c_sources": [
+        "main.c",
+		"hidBlProtocol.c",
+		"intFlash.c"
+    ],
+	"linkerFile": "./linker/samd21j18a_bl.ld",
+    "includes": [
+        "./"
+    ],
+	"cflags": [
+    	"-nostdlib",
+ 		"-flto"
+ 	],
+ 	"ldflags": [
+    	"-nostdlib",
+ 		"-flto"
+ 	],	
+    "buildDir": "./build",
+    "libraries": [
+     	{
+           	"libName": "nimolib",
+           	"libPath": "git@github.com:nimo-labs/nimolib.git",
+    		"books":[
+        		"gpio",
+        		"uart",
+        		"osc",
+				"printf",
+				"usbHid",
+				"delay"
+        	]
+	    }
+	]
+}
